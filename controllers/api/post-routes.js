@@ -6,7 +6,6 @@ const { Post, User, Vote, Comment } = require('../../models');
 router.get('/', (req, res) => {
     console.log('======================');
     Post.findAll({
-        order: [['created_at', 'DESC']],
         attributes: [
             'id', 
             'post_url', 
@@ -80,8 +79,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Post.create({
-        post_url: req.body.post_url,
         title: req.body.title,
+        post_url: req.body.post_url,
         user_id: req.body.user_id
     })
     .then(dbPostData => {
@@ -94,7 +93,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/upvote', (req, res) => {
-    Post.upvote(req.body, { Vote })
+    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
     .then(updatedPostData => res.json(updatedPostData))
     .catch(err => {
         console.log(err);

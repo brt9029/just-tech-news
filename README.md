@@ -18,7 +18,7 @@
 - [License](#license)
 
 ## Usage
-- Site can be accessed at the following deployed URL: https://dashboard.heroku.com/apps/just-tech-news-9029
+- Site can be accessed at the following deployed URL: https://just-tech-news-9029.herokuapp.com/
 - Click on the Login button, create an account and start sharing!
 
 ![just-tech-news](https://user-images.githubusercontent.com/26530136/195225475-f1c812cb-0162-4822-a457-0759aa183bd7.png)
